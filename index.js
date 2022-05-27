@@ -2,6 +2,7 @@ const express = require('express');
 const tire = require('./database/models/tire');
 const disk = require('./database/models/disk')
 const sequelize = require('./database/sequelize');
+const getAllTires = require('./database/selects');
 //const { Sequelize } = require('sequelize/types');
 
 const app = express();
@@ -10,6 +11,11 @@ const port = 8808;
 app.get('/', (req, res) => {
    createData()
 });
+
+app.get('/tires', (req,res) => {
+  var tires = getAllTires()
+  tires.then(data => res.send(data).sendStatus(200))
+})
 
 async function createData() {
 
