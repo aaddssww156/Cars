@@ -5,5 +5,5 @@ const sequelize = new Sequelize('CarsDatabase', 'root', 'password', {
     dialect: 'mysql'
   });
 
-module.exports = sequelize
+module.exports = sequelize;
 
