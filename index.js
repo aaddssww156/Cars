@@ -1,20 +1,27 @@
 const express = require('express');
 const tire = require('./database/models/tire');
 const disk = require('./database/models/disk')
-const sequelize = require('./database/sequelize');
-const getAllTires = require('./database/selects');
+const getAllDisks = require('./database/selects/getAllDisks');
+const getAllTires = require('./database/selects/getAllTires');
+const sequelize = require('./database/sequelize')
+//const getAllDisks = require('./database/selects')
 //const { Sequelize } = require('sequelize/types');
 
 const app = express();
 const port = 8808;
 
 app.get('/', (req, res) => {
-   createData()
+   //createData()
 });
 
 app.get('/tires', (req,res) => {
   var tires = getAllTires()
   tires.then(data => {res.status(200).json(data)})
+})
+
+app.get('/disks', (req,res) => {
+  var disks = getAllDisks()
+  disks.then(data => {res.status(200).json(data)})
 })
 
 async function createData() {
