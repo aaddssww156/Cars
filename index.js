@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.get('/tires', (req,res) => {
   var tires = getAllTires()
-  tires.then(data => res.send(data).sendStatus(200))
+  tires.then(data => {res.status(200).json(data)})
 })
 
 async function createData() {
