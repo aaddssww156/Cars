@@ -18,11 +18,25 @@ app.get('/', (req, res) => {
    res.sendFile('index.html', {root: 'client'})
    
    //get на данные
+   let jsonData = "["
    var tires = getAllTires()
+   tires.then((data) => {
+     for(let i = 0; i < data.length; i ++) {
+      console.log(JSON.stringify(data[i].dataValues))
+      jsonData += JSON.stringify(data[i].dataValues) + ','
+     }
+     jsonData = jsonData.slice(0, jsonData.length - 1)
+     jsonData += ']'
+     console.log(jsonData)
+     fs.writeFileSync('client/catalog.json', jsonData)
+   })
    
-   tires.then(data => {res.status(200).json(data)})
-   let data = JSON.stringify(tires)
-   fs.writeFileSync('catalog.json', data)
+   //console.log(data)
+   
+   //tires.then(data => {res.status(200).json(data)})
+   //let data = JSON.stringify(tires)
+   //console.log(data)
+   //fs.writeFileSync('catalog.json', data)
 });
 
 app.get('/tires', (req,res) => {
