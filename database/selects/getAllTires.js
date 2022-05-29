@@ -9,3 +9,4 @@ async function getAllTires() {
 }
 
 module.exports = getAllTires
+

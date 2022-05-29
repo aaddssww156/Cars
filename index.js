@@ -12,6 +12,10 @@ const port = 8808;
 
 app.get('/', (req, res) => {
    //createData()
+
+   //отображение страницы
+   res.sendFile('index.html', {root: 'client'})
+   //res.sendFile('check.html', {root: __dirname});
 });
 
 app.get('/tires', (req,res) => {
@@ -23,6 +27,8 @@ app.get('/disks', (req,res) => {
   var disks = getAllDisks()
   disks.then(data => {res.status(200).json(data)})
 })
+
+app.use(express.static(__dirname +'/client'));
 
 async function createData() {
 
