@@ -6,6 +6,7 @@ const getAllTires = require('./database/selects/getAllTires');
 const sequelize = require('./database/sequelize')
 //const getAllDisks = require('./database/selects')
 //const { Sequelize } = require('sequelize/types');
+const fs = require('fs')
 
 const app = express();
 const port = 8808;
@@ -15,7 +16,13 @@ app.get('/', (req, res) => {
 
    //отображение страницы
    res.sendFile('index.html', {root: 'client'})
-   //res.sendFile('check.html', {root: __dirname});
+   
+   //get на данные
+   var tires = getAllTires()
+   
+   tires.then(data => {res.status(200).json(data)})
+   let data = JSON.stringify(tires)
+   fs.writeFileSync('catalog.json', data)
 });
 
 app.get('/tires', (req,res) => {

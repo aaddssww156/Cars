@@ -23,7 +23,7 @@ class Products{
         const productsStore = localStorageUtil.getProducts();
         let htmlCatalog = '';
         
-        CATALOG.forEach(({id, name, price, img }) => {
+        CATALOG.forEach(({id, manufacturer, name, width, height, radius, season, price, img }) => {
             let activeClass = '';
             let activeText = '';
 
@@ -37,8 +37,13 @@ class Products{
 
             htmlCatalog += `
                 <li class="products-element">
+                    <span class="products-element__name">${manufacturer}</span>
                     <span class="products-element__name">${name}</span>
                     <img class="products-element__img" src="${img}"/>
+                    <span>${width}</span>
+                    <span>${height}</span>
+                    <span>${radius}</span>
+                    <span>${season}</span>
                     <span class="products-element__price">
                         🏷️ ${price.toLocaleString()} RUB
                     </span>
