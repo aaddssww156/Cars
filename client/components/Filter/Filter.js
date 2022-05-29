@@ -28,20 +28,29 @@ class Filter {
         const html = `
         
         <div class="tab">
+        <form action="/" method="get" name="tires_all">
         <button class="tablinks" onclick="filterPage.openCity(event, 'Tires')">Шины</button>
+        </form>
+        <form action="/disks" method="get" name="disks_all">
         <button class="tablinks" onclick="filterPage.openCity(event, 'Rims')">Диски</button>
-        
+        </form>
       </div>
       
       <!-- Содержимое вкладки шины -->
       <div id="Tires" class="tabcontent">
-      <form action="findTires.js">
+      <form action="/tires" name="tires" method="post">
+      <div>
+      <div class ="row">
       <label for="length">Ширина</label>
       <input type="text" id="length" name="length" placeholder="Ширина...">
-    
+      </div>
+
+      <div class="row">
       <label for="lname">Высота</label>
       <input type="text" id="height" name="height" placeholder="Высота..">
-    
+      </div>
+
+      <div class="row">
       <label for="radius">Радиус</label>
       <input list="radius-vars" id="radius" name="radius"/>
       <datalist id="radius-vars">
@@ -49,15 +58,20 @@ class Filter {
         <option value="R14">
                
       </datalist>
-            
+      </div> 
 
+      <div class="row">
       <label for="season">Сезон</label>
       <select id="season" name="season">
         <option value="summer">Лето</option>
         <option value="Winter">Зима</option>        
       </select>
-    
-      <input type="submit" value="Принять">
+      </div>
+
+      <div>
+      <button type="submit">Принять</button>
+      </div>
+      </div>
         </form>       
       </div>
       
@@ -65,11 +79,14 @@ class Filter {
 
       <!-- Содержимое вкладки диски -->
       <div id="Rims" class="tabcontent">
-      <form action="findRims.js">
+      <form action="/disks" method="post" name="disks">
+      <div>
+      <div class="row">
       <label for="length">Ширина</label>
       <input type="text" id="length" name="length" placeholder="Ширина...">
+      </div>
     
-    
+      <div class="row">
       <label for="radius">Радиус</label>
       <input list="radius-vars" id="radius" name="radius"/>
       <datalist id="radius-vars">
@@ -77,15 +94,22 @@ class Filter {
         <option value="R15">
                
       </datalist>
+      </div>
             
-
+      <div class="row">
       <label for="dia">DIA</label>
       <input type="text" id="dia" name="dia" placeholder="DIA...">
-
+      </div>
+      
+      <div class="row">
       <label for="pcd">PCD</label>
       <input type="text" id="pcd" name="pcd" placeholder="PCD...">
-    
-      <input type="submit" value="Принять">
+      </div>
+
+      <div>
+      <button type="submit">Принять</button>
+      </div>
+      </div>
         </form>       
       
       </div>     

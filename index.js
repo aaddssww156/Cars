@@ -3,13 +3,75 @@ const tire = require('./database/models/tire');
 const disk = require('./database/models/disk')
 const getAllDisks = require('./database/selects/getAllDisks');
 const getAllTires = require('./database/selects/getAllTires');
+const findTires = require('./database/selects/findTires')
+const findDisks = require('./database/selects/findDisks')
 const sequelize = require('./database/sequelize')
+const urlencodedParser = express.urlencoded({extended: false});
 //const getAllDisks = require('./database/selects')
 //const { Sequelize } = require('sequelize/types');
 const fs = require('fs')
 
 const app = express();
 const port = 8808;
+
+app.post('/tires', urlencodedParser, (req,res) => {
+  console.log("Post working!")
+  let width = req.body.length
+  let height = req.body.height
+  let radius = req.body.radius
+  let season
+  if(req.body.season === 'summer') {
+    season = 'Лето'
+  } else {
+    season = 'Зима'
+  }
+
+  let data = findTires(width, height, radius, season)
+  let jsonData = "["
+  data.then(dat => {
+    for(let i = 0; i < dat.length; i++) {
+     // console.log(dat[i].dataValues)
+      jsonData += JSON.stringify(dat[i].dataValues) + ','
+    }
+    if(dat.length !== 0) {
+      jsonData = jsonData.slice(0, jsonData.length - 1)
+    }
+    jsonData += ']'
+    fs.writeFileSync('client/catalog.json', jsonData)
+    console.log(jsonData)
+  })
+
+  res.sendFile('index.html', {root: 'client'})
+})
+
+app.post('/disks', urlencodedParser, (req, res) => {
+  console.log("Post!")
+
+  let width = req.body.length
+  let diameter = req.body.radius
+  let dia = req.body.dia
+  let pcd = req.body.pcd
+
+  let data = findDisks(width, diameter, dia, pcd)
+
+  let jsonData = '['
+  data.then(dat => {
+    for(let i = 0; i < dat.length; i++) {
+      jsonData += JSON.stringify(dat[i].dataValues) + ','
+    }
+    if(dat.length !== 0) {
+      jsonData = jsonData.slice(0, jsonData.length - 1)
+    }
+    jsonData += ']'
+    fs.writeFileSync('client/catalog.json', jsonData)
+    console.log(jsonData)
+  })
+  res.sendFile('index.html', {root: 'client'})
+})
+
+//app.post('/', (req,res) => {
+//  res.send("Миша, нет тут твоих путей до файла, ибо всё обрабаывается в индексе и мы по пост запросу обрабатываем собсна сам запрос и отправляем в теле данные, которые мы получаем на сервере и с ними работаем")
+//})
 
 app.get('/', (req, res) => {
    //createData()
@@ -22,12 +84,12 @@ app.get('/', (req, res) => {
    var tires = getAllTires()
    tires.then((data) => {
      for(let i = 0; i < data.length; i ++) {
-      console.log(JSON.stringify(data[i].dataValues))
+      //console.log(JSON.stringify(data[i].dataValues))
       jsonData += JSON.stringify(data[i].dataValues) + ','
      }
      jsonData = jsonData.slice(0, jsonData.length - 1)
      jsonData += ']'
-     console.log(jsonData)
+     //console.log(jsonData)
      fs.writeFileSync('client/catalog.json', jsonData)
    })
    
@@ -45,8 +107,24 @@ app.get('/tires', (req,res) => {
 })
 
 app.get('/disks', (req,res) => {
-  var disks = getAllDisks()
-  disks.then(data => {res.status(200).json(data)})
+  //createData()
+
+   //отображение страницы
+   res.sendFile('index.html', {root: 'client'})
+   
+   //get на данные
+   let jsonData = "["
+   var tires = getAllDisks()
+   tires.then((data) => {
+     for(let i = 0; i < data.length; i ++) {
+      //console.log(JSON.stringify(data[i].dataValues))
+      jsonData += JSON.stringify(data[i].dataValues) + ','
+     }
+     jsonData = jsonData.slice(0, jsonData.length - 1)
+     jsonData += ']'
+     //console.log(jsonData)
+     fs.writeFileSync('client/catalog.json', jsonData)
+   })
 })
 
 app.use(express.static(__dirname +'/client'));
