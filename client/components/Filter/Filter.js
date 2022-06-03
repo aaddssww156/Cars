@@ -24,14 +24,18 @@ class Filter {
         
       }
 
+    showManufacturerModels(event, name){
+
+    }
+
     render(){
         const html = `
         
         <div class="tab">
-        <form action="/" method="get" name="tires_all">
+        <!-- <form action="/" method="get" name="tires_all"> -->
         <button class="tablinks" onclick="filterPage.openCity(event, 'Tires')">Шины</button>
         </form>
-        <form action="/disks" method="get" name="disks_all">
+        <!-- <form action="/disks" method="get" name="disks_all"> -->
         <button class="tablinks" onclick="filterPage.openCity(event, 'Rims')">Диски</button>
         </form>
       </div>
@@ -40,6 +44,25 @@ class Filter {
       <div id="Tires" class="tabcontent">
       <form action="/tires" name="tires" method="post">
       <div>
+      
+      <div class="row">
+      <label for="manufacturer">Производитель</label>
+      <select id="manufacturer" name="manufacturer">
+        <option value="toyota">Toyota</option>
+        <option value="nissan">Nissan</option>        
+      </select>
+      </div>
+
+      <div class ="row">
+      <label for="model">Модель</label>
+      <input type="text" id="model" name="model" placeholder="Модель...">
+      </div>
+
+      <div class ="row">
+      <label for="pokolenie">Поколение</label>
+      <input type="text" id="pokolenie" name="pokolenie" placeholder="Поколение...">
+      </div>
+
       <div class ="row">
       <label for="length">Ширина</label>
       <input type="text" id="length" name="length" placeholder="Ширина...">
@@ -79,7 +102,7 @@ class Filter {
 
       <!-- Содержимое вкладки диски -->
       <div id="Rims" class="tabcontent">
-      <form action="/disks" method="post" name="disks">
+      <form action="/disks" method="post" name="disks"> 
       <div>
       <div class="row">
       <label for="length">Ширина</label>
