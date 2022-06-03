@@ -1,6 +1,7 @@
 const express = require('express');
 const tire = require('./database/models/tire');
 const disk = require('./database/models/disk')
+const car = require('./database/models/car')
 const getAllDisks = require('./database/selects/getAllDisks');
 const getAllTires = require('./database/selects/getAllTires');
 const findTires = require('./database/selects/findTires')
