@@ -104,6 +104,25 @@ class Filter {
       <div id="Rims" class="tabcontent">
       <form action="/disks" method="post" name="disks"> 
       <div>
+
+      <div class="row">
+      <label for="manufacturer">Производитель</label>
+      <select id="manufacturer" name="manufacturer">
+        <option value="toyota">Toyota</option>
+        <option value="nissan">Nissan</option>        
+      </select>
+      </div>
+
+      <div class ="row">
+      <label for="model">Модель</label>
+      <input type="text" id="model" name="model" placeholder="Модель...">
+      </div>
+
+      <div class ="row">
+      <label for="pokolenie">Поколение</label>
+      <input type="text" id="pokolenie" name="pokolenie" placeholder="Поколение...">
+      </div>
+
       <div class="row">
       <label for="length">Ширина</label>
       <input type="text" id="length" name="length" placeholder="Ширина...">
