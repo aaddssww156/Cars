@@ -59,8 +59,8 @@ class Filter {
       </div>
 
       <div class ="row">
-      <label for="pokolenie">Поколение</label>
-      <input type="text" id="pokolenie" name="pokolenie" placeholder="Поколение...">
+      <label for="kuzov">Кузов</label>
+      <input type="text" id="kuzov" name="kuzov" placeholder="Кузов...">
       </div>
 
       <div class ="row">
@@ -119,8 +119,8 @@ class Filter {
       </div>
 
       <div class ="row">
-      <label for="pokolenie">Поколение</label>
-      <input type="text" id="pokolenie" name="pokolenie" placeholder="Поколение...">
+      <label for="kuzov">Кузов</label>
+      <input type="text" id="kuzov" name="kuzov" placeholder="Кузов...">
       </div>
 
       <div class="row">
