@@ -11,7 +11,7 @@ async function getAllTires() {
 
 async function getAllDisks() {
     return await disk.findAll({
-        attributes: ['id', 'manufacturer', 'name', 'width', 'diameter', 'DIA', 'PCD', 'price', 'carName']
+        attributes: ['id', 'manufacturer', 'name', 'width', 'diameter', 'DIA', 'PCD', 'price', 'carName', 'carManufacturer']
     })
     .then(console.log("All disks found!"))
     .catch(err => console.log(err))

@@ -4,9 +4,11 @@ const disk = require('./database/models/disk')
 const car = require('./database/models/car')
 const getAllDisks = require('./database/selects/getAllDisks');
 const getAllTires = require('./database/selects/getAllTires');
+const getAllTiresFromCars = require('./database/selects/getAllTiresFromCars');
+const getAllDisksFromCars = require('./database/selects/getAllDisksFromCars');
 const findTires = require('./database/selects/findTires')
 const findDisks = require('./database/selects/findDisks')
-const findCars = require('./database/selects/fincCars')
+const findCars = require('./database/selects/findCars')
 const sequelize = require('./database/sequelize')
 const urlencodedParser = express.urlencoded({extended: false});
 //const getAllDisks = require('./database/selects')
@@ -135,9 +137,9 @@ app.get('/disks', (req,res) => {
    })
 })
 
-app.get('/adddata', (req, res) => {
+/*app.get('/adddata', (req, res) => {
   createData()
-})
+})*/
 
 app.get('/show', (req,res) => {
   let data = lol()
