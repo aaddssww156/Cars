@@ -48,8 +48,8 @@ class Filter {
       <div class="row">
       <label for="manufacturer">Производитель</label>
       <select id="manufacturer" name="manufacturer">
-        <option value="toyota">Toyota</option>
-        <option value="nissan">Nissan</option>        
+        <option value="Toyota">Toyota</option>
+        <option value="Nissan">Nissan</option>        
       </select>
       </div>
 
@@ -108,8 +108,8 @@ class Filter {
       <div class="row">
       <label for="manufacturer">Производитель</label>
       <select id="manufacturer" name="manufacturer">
-        <option value="toyota">Toyota</option>
-        <option value="nissan">Nissan</option>        
+        <option value="Toyota">Toyota</option>
+        <option value="Nissan">Nissan</option>        
       </select>
       </div>
 
