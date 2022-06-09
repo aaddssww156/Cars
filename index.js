@@ -25,31 +25,36 @@ app.get('/cars', (req, res) => {
 app.post('/tires', urlencodedParser, (req,res) => {
   console.log("Post working!")
   console.log(req.body)
-  let width = req.body.length
-  let height = req.body.height
-  let radius = req.body.radius
-  let generation = req.body.pokolenie
-  let model = req.body.model
-  let manufacturer = req.body.manufacturer
-  let season
-  if(req.body.season === 'summer') {
-    season = 'Лето'
-  } else {
-    season = 'Зима'
-  }
+  //let width = req.body.length
+  //let height = req.body.height
+  //let radius = req.body.radius
+  //let generation = req.body.pokolenie
+  //let model = req.body.model
+  //let manufacturer = req.body.manufacturer
+  //let season
+  //if(req.body.season === 'summer') {
+  //  season = 'Лето'
+  //} else {
+  //  season = 'Зима'
+  //}
 
-  let data = getAllTiresFromCars(width, height, radius)
+  let carManufacturer = req.body.manufacturer
+  let carName = req.body.model
+
+  let data = getAllTiresFromCars(carManufacturer, carName)
+  ////console.log("-----------------")
   let jsonData = "["
   data.then(dat => {
-    for(let i = 0; i < dat.length; i++) {
-      jsonData += JSON.stringify(dat[i].dataValues) + ','
-    }
-    if(dat.length !== 0) {
-      jsonData = jsonData.slice(0, jsonData.length - 1)
-    }
-    jsonData += ']'
-    fs.writeFileSync('client/catalog.json', jsonData)
-    console.log(jsonData)
+    console.log(dat)
+    //for(let i = 0; i < dat.length; i++) {
+    //  jsonData += JSON.stringify(dat[i].dataValues) + ','
+    //}
+   // if(dat.length !== 0) {
+    //  jsonData = jsonData.slice(0, jsonData.length - 1)
+    //}
+    //jsonData += ']'
+    //fs.writeFileSync('client/catalog.json', jsonData)
+    //console.log(jsonData)
   })
 
   res.sendFile('index.html', {root: 'client'})
