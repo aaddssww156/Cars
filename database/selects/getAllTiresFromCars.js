@@ -1,4 +1,5 @@
 const tire = require('../models/tire')
+const {Op} = require("sequelize");
 
 async function getAllTiresFromCars(widthh, heightt, radiuss) {
     return await tire.findAll({

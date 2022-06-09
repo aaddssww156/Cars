@@ -1,4 +1,5 @@
 const disk = require('../models/disk');
+const {Op} = require("sequelize");
 
 async function getAllDisksFromCars(carMan, carNam) {
     return await disk.findAll({

@@ -26,9 +26,13 @@ app.get('/cars', (req, res) => {
 
 app.post('/tires', urlencodedParser, (req,res) => {
   console.log("Post working!")
+  console.log(req.body)
   let width = req.body.length
   let height = req.body.height
   let radius = req.body.radius
+  let generation = req.body.pokolenie
+  let model = req.body.model
+  let manufacturer = req.body.manufacturer
   let season
   if(req.body.season === 'summer') {
     season = 'Лето'
@@ -36,11 +40,10 @@ app.post('/tires', urlencodedParser, (req,res) => {
     season = 'Зима'
   }
 
-  let data = findTires(width, height, radius, season)
+  let data = getAllTiresFromCars(width, height, radius)
   let jsonData = "["
   data.then(dat => {
     for(let i = 0; i < dat.length; i++) {
-     // console.log(dat[i].dataValues)
       jsonData += JSON.stringify(dat[i].dataValues) + ','
     }
     if(dat.length !== 0) {
@@ -61,8 +64,10 @@ app.post('/disks', urlencodedParser, (req, res) => {
   let diameter = req.body.radius
   let dia = req.body.dia
   let pcd = req.body.pcd
+  let carManufacturer = req.body.manufacturer
+  let carName = req.body.model
 
-  let data = findDisks(width, diameter, dia, pcd)
+  let data = getAllDisksFromCars(carManufacturer, carName)
 
   let jsonData = '['
   data.then(dat => {
