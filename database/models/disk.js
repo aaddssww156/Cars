@@ -31,6 +31,9 @@ disk.init({
     },
     carName: {
         type: DataTypes.STRING
+    },
+    carManufacturer: {
+        type: DataTypes.STRING
     }}, {
         sequelize: sequelize,
         timestamps: false,
