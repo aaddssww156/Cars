@@ -49,7 +49,9 @@ class Filter {
       <label for="manufacturer">Производитель</label>
       <select id="manufacturer" name="manufacturer">
         <option value="Toyota">Toyota</option>
-        <option value="Nissan">Nissan</option>        
+        <option value="Nissan">Nissan</option>
+        <option value="Subaru">Toyota</option>
+        <option value="BMW">Nissan</option>         
       </select>
       </div>
 
@@ -62,7 +64,7 @@ class Filter {
       <label for="kuzov">Кузов</label>
       <input type="text" id="kuzov" name="kuzov" placeholder="Кузов...">
       </div>
-
+      <!--
       <div class ="row">
       <label for="length">Ширина</label>
       <input type="text" id="length" name="length" placeholder="Ширина...">
@@ -89,7 +91,7 @@ class Filter {
         <option value="summer">Лето</option>
         <option value="Winter">Зима</option>        
       </select>
-      </div>
+      </div> -->
 
       <div>
       <button type="submit">Принять</button>
@@ -109,7 +111,9 @@ class Filter {
       <label for="manufacturer">Производитель</label>
       <select id="manufacturer" name="manufacturer">
         <option value="Toyota">Toyota</option>
-        <option value="Nissan">Nissan</option>        
+        <option value="Nissan">Nissan</option>
+        <option value="Subaru">Toyota</option>
+        <option value="BMW">Nissan</option>          
       </select>
       </div>
 
@@ -122,7 +126,7 @@ class Filter {
       <label for="kuzov">Кузов</label>
       <input type="text" id="kuzov" name="kuzov" placeholder="Кузов...">
       </div>
-
+      <!--
       <div class="row">
       <label for="length">Ширина</label>
       <input type="text" id="length" name="length" placeholder="Ширина...">
@@ -146,7 +150,7 @@ class Filter {
       <div class="row">
       <label for="pcd">PCD</label>
       <input type="text" id="pcd" name="pcd" placeholder="PCD...">
-      </div>
+      </div> -->
 
       <div>
       <button type="submit">Принять</button>
