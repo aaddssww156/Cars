@@ -2,7 +2,7 @@ function render() {
     const productsStore = localStorageUtil.getProducts();
 
     
-    productsPage.renderRims();
+    productsPage.render();
     filterPage.render();
 }
 
