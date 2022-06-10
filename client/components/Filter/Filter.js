@@ -1,3 +1,6 @@
+
+
+
 class Filter {
 
   //productsPage.isDisk = false;
@@ -27,8 +30,17 @@ class Filter {
         
       }
 
-    showManufacturerModels(event, name){
-
+    disk(){
+      //isDisk = true;
+      localStorage.setItem('isDisk', true)
+      
+      
+    }
+    shina(){
+      //isDisk = false;
+      
+      localStorage.setItem('isDisk', false)
+      
     }
 
     render(){
@@ -36,10 +48,10 @@ class Filter {
         
         <div class="tab">
         <!-- <form action="/" method="get" name="tires_all"> -->
-        <button class="tablinks" onclick="filterPage.openCity(event, 'Tires'); isDisk=false">Шины</button>
+        <button class="tablinks" onclick="filterPage.openCity(event, 'Tires'); filterPage.shina();">Шины</button>
         </form>
         <!-- <form action="/disks" method="get" name="disks_all"> -->
-        <button class="tablinks" onclick="filterPage.openCity(event, 'Rims')"; isDisk=true>Диски</button>
+        <button class="tablinks" onclick="filterPage.openCity(event, 'Rims'); filterPage.disk();">Диски</button>
         </form>
       </div>
       
@@ -97,7 +109,7 @@ class Filter {
       </div> -->
 
       <div>
-      <button type="submit">Принять</button>
+      <button type="submit" >Принять</button>
       </div>
       </div>
         </form>       
@@ -115,8 +127,8 @@ class Filter {
       <select id="manufacturer" name="manufacturer">
         <option value="Toyota">Toyota</option>
         <option value="Nissan">Nissan</option>
-        <option value="Subaru">Toyota</option>
-        <option value="BMW">Nissan</option>          
+        <option value="Subaru">Subaru</option>
+        <option value="BMW">BMW</option>          
       </select>
       </div>
 
@@ -170,3 +182,4 @@ class Filter {
 }
 
 const filterPage = new Filter();
+//console.log(isDisk)
