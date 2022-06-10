@@ -1,8 +1,15 @@
 function render() {
     const productsStore = localStorageUtil.getProducts();
 
+    if(isDisk == true) {
+        productsPage.render();
+        //isDisk = false;
+    } else {
+        productsPage.renderRims();
+        //isDisk = true;
+    }
+
     
-    productsPage.render();
     filterPage.render();
 }
 

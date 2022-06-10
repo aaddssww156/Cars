@@ -1,5 +1,8 @@
 class Filter {
 
+  //productsPage.isDisk = false;
+
+
     openCity(evt, cityName) {
         // Объявить все переменные
         var i, tabcontent, tablinks;
@@ -33,10 +36,10 @@ class Filter {
         
         <div class="tab">
         <!-- <form action="/" method="get" name="tires_all"> -->
-        <button class="tablinks" onclick="filterPage.openCity(event, 'Tires')">Шины</button>
+        <button class="tablinks" onclick="filterPage.openCity(event, 'Tires'); isDisk=false">Шины</button>
         </form>
         <!-- <form action="/disks" method="get" name="disks_all"> -->
-        <button class="tablinks" onclick="filterPage.openCity(event, 'Rims')">Диски</button>
+        <button class="tablinks" onclick="filterPage.openCity(event, 'Rims')"; isDisk=true>Диски</button>
         </form>
       </div>
       
