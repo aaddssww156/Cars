@@ -49,10 +49,10 @@ class Products{
                     <span class="products-element__price">
                         🏷️ ${price.toLocaleString()} RUB
                     </span>
-                    <button class="products-element__btn${activeClass}"
+                    <!--<button class="products-element__btn${activeClass}"
                      onclick="productsPage.handleSetLocationStorage(this, '${id}');">
                         ${activeText}
-                    </button>
+                    </button> -->
                 </li>
             `;
         });
