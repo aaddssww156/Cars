@@ -46,15 +46,15 @@ app.post('/tires', urlencodedParser, (req,res) => {
   let jsonData = "["
   data.then(dat => {
     console.log(dat)
-    //for(let i = 0; i < dat.length; i++) {
-    //  jsonData += JSON.stringify(dat[i].dataValues) + ','
-    //}
-   // if(dat.length !== 0) {
-    //  jsonData = jsonData.slice(0, jsonData.length - 1)
-    //}
-    //jsonData += ']'
-    //fs.writeFileSync('client/catalog.json', jsonData)
-    //console.log(jsonData)
+    for(let i = 0; i < dat.length; i++) {
+      jsonData += JSON.stringify(dat[i]) + ','
+    }
+    if(dat.length !== 0) {
+      jsonData = jsonData.slice(0, jsonData.length - 1)
+    }
+    jsonData += ']'
+    fs.writeFileSync('client/catalog.json', jsonData)
+    console.log(jsonData)
   })
 
   res.sendFile('index.html', {root: 'client'})
